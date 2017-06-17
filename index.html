@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aplication video Angularjs </title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="logo">TvTracker</div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#/">What on <div class="arrow-up"></div></a>
+                </li>
+                <li>
+                    <a href="#/my-shows">My Shows <div class="arrow-up"></div></a>
+                </li>
+                <li>
+                    <a href="#/search">Search <div class="arrow-up"></div></a>
+                </li>
+    
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" ng-view>
+        {{'hello from angular'}}
+    </main>
+
+
+    <!--dependencies-->
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+    <!--app-->
+    <script src="./app.js"></script>
+    <script src="./app.routes.js"></script>
+    <script src="./app.core.js"></script>
+</body>
+
+</html>
