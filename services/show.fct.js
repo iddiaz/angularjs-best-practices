@@ -36,7 +36,6 @@
             var requestUrl = BASE_URL + '/' + url + '?api_key=' + API_KEY + '&language=es';
             angular.forEach(params, function (value, key) {
                 requestUrl = requestUrl + '&' + key + '=' + value;
-                console.log('esta es la url en el servicio',requestUrl);
             });
 
             return $http({
@@ -49,25 +48,24 @@
             }).then(function (response) {
                 return response.data;
             }).catch(dataServiceError);
-        }
+        };
 
         function get(id) {
             return makeRequest('tv/' + id, {});
 
-        }
+        };
 
         function search(query){
             return makeRequest ('search/tv', { query:query }).then( function( data ){
-                return data.results;
-               
-            })
-        }
+                return data.results;               
+            });
+        };
 
 
         function dataServiceError(errorResponse) {
             $log.error('XHR Failed for ShowService');
             $log.error(errorResponse);
             return errorResponse;
-        }
+        };
     }
 })();
