@@ -9,6 +9,10 @@
     function WhatsOnController() {
         var vm = this;
         vm.title = 'Hello from WhatsOn controller!!'
+
+        // ShowService.getFake();
+
+
         
 
     }
