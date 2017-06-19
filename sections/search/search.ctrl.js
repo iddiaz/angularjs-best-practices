@@ -5,8 +5,8 @@
         .module('app.core')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['ShowService', '$timeout'];
-    function SearchController(ShowService, $timeout) {
+    SearchController.$inject = ['ShowService', '$timeout', 'StoreFactory'];
+    function SearchController(ShowService, $timeout, StoreFactory ) {
         var vm = this;
 
         vm.title = 'Hello from search controller!!';
@@ -28,7 +28,17 @@
                 })
         }
 
-        // vm.query('Game of trones')
+        vm.trackShow = function(show){
+            StoreFactory.addShow(show);
+        };
+
+        vm.unTrackShow = function(id){
+            StoreFactory.removeShow(id);
+        };
+
+        vm.hasShow = function(id) {
+            return ( StoreFactory.getShow(id) !== false);
+        }
 
         
     }
