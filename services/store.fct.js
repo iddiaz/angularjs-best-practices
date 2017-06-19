@@ -5,10 +5,15 @@
         .module('app.services')
         .factory('StoreFactory', dataService);
 
-    dataService.$inject = [];
-    function dataService() {
+    dataService.$inject = ['localStorageService'];
+    function dataService(localStorageService) {
         
         var _shows = [];
+        var ls = localStorageService.get('store');
+
+        if(ls !== null){
+            _shows = ls;
+        }
 
         var service = {
             'addShow': addShow,
@@ -23,6 +28,7 @@
         ////////////////
         function addShow( data ){
             _shows.push( data );
+            save();
         }
 
         function getShow( id ) { 
@@ -55,7 +61,12 @@
             });
             if ( found === true ){
                 _shows.splice(idx, 1);
+                save();
             }
+        }
+
+        function save() {
+            localStorageService.set('store', _shows);
         }
 
 

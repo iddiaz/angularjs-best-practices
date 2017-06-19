@@ -1,6 +1,6 @@
 (function(){
     'use strict';
 
-   angular.module('app.core', ['ui.bootstrap', 'ngAnimate']);
+   angular.module('app.core', ['ui.bootstrap', 'ngAnimate', 'LocalStorageModule']);
 
 })();
