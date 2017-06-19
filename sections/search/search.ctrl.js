@@ -28,17 +28,6 @@
                 })
         }
 
-        vm.trackShow = function(show){
-            StoreFactory.addShow(show);
-        };
-
-        vm.unTrackShow = function(id){
-            StoreFactory.removeShow(id);
-        };
-
-        vm.hasShow = function(id) {
-            return ( StoreFactory.getShow(id) !== false);
-        }
 
         
     }
