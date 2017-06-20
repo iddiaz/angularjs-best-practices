@@ -13,7 +13,8 @@
             controller: showController,
             restrict: 'E',
             scope: {
-                show:'='
+                show:'=',
+                showRating: '='
             }
         };
         return directive;

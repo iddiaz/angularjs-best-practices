@@ -5,8 +5,8 @@
         .module('app.services')
         .factory('StoreFactory', dataService);
 
-    dataService.$inject = ['localStorageService'];
-    function dataService(localStorageService) {
+    dataService.$inject = ['localStorageService', '$rootScope'];
+    function dataService(localStorageService, $rootScope) {
         
         var _shows = [];
         var ls = localStorageService.get('store');
@@ -22,7 +22,7 @@
             'removeShow': removeShow
         };
         
-        return service;
+       
 
         
         ////////////////
@@ -68,6 +68,15 @@
         function save() {
             localStorageService.set('store', _shows);
         }
+
+        $rootScope.$watch(function(){
+            return _shows;
+        }, function(){
+            save();
+        }, true);
+
+
+        return service;
 
 
 
