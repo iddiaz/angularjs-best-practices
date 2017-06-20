@@ -56,11 +56,11 @@
 
         };
 
-        function search(query){
-            return makeRequest ('search/tv', { query:query }).then( function( data ){
-                return data.results;               
+        function search(query, page) {
+            return makeRequest('search/tv', { query: query, page: page }).then(function (data) {
+                return data;
             });
-        };
+        }
 
         function getSeason(showId, seasonNumber) {
             return makeRequest('tv/' + showId + '/season/' + seasonNumber, {});
