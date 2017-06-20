@@ -14,7 +14,8 @@
         var data = {
             // exposedFn:exposedFn
             'get': get,
-            'search': search
+            'search': search,
+            'getSeason': getSeason
             
         };
 
@@ -59,6 +60,10 @@
             return makeRequest ('search/tv', { query:query }).then( function( data ){
                 return data.results;               
             });
+        };
+
+        function getSeason(showId, seasonNumber) {
+            return makeRequest('tv/' + showId + '/season/' + seasonNumber, {});
         };
 
 
