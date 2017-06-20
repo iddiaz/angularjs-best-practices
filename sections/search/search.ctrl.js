@@ -28,6 +28,14 @@
                 })
         }
 
+        vm.typeahead = function(query) {
+            return ShowService.search(query).then(function(response){
+                return response.map(function(show){
+                    return show.name;
+                });
+            });
+         };
+
 
         
     }
